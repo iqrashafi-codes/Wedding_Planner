@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css.file/mycssfile.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard - Dream Wedding Planner</title>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">Dream Wedding</div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="Services.html" class="nav-link">Services</a>
+            <a href="Gallery.html" class="nav-link">Gallery</a>
+            <a href="Contact.html" class="nav-link">Contact</a>
+            <a href="Dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="Login.html" class="nav-link">Login</a>
+            <a href="Signin.html" class="nav-link btn-nav">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="page-title">My Dashboard</h1>
+        <p class="page-subtitle">Manage your bookings, stock and account details</p>
+    </div>
+
+    <div class="dashboard-wrapper">
+
+        <!-- STATS -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-info">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Total Bookings</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Confirmed</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <span class="stat-number">281,400 PKR</span>
+                    <span class="stat-label">Total Paid</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-info">
+                    <span class="stat-number">48</span>
+                    <span class="stat-label">Total Stock</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🛒</div>
+                <div class="stat-info">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Cart Items</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-main">
+
+            <!-- STOCK MANAGEMENT ACTION CARDS -->
+            <div class="stock-action-section">
+                <h2 class="dashboard-section-title">Stock Management</h2>
+                <div class="stock-cards">
+                    <div class="stock-action-card">
+                        <div class="stock-card-icon">➕</div>
+                        <h3 class="stock-card-title">Insert New Stock</h3>
+                        <p class="stock-card-desc">Add new packages, decorations or services to the stock database.</p>
+                        <button class="btn btn-gold" data-section="insertStock">Add Stock</button>
+                    </div>
+                    <div class="stock-action-card">
+                        <div class="stock-card-icon">✏️</div>
+                        <h3 class="stock-card-title">Update Stock</h3>
+                        <p class="stock-card-desc">Edit and update existing stock details, prices and availability.</p>
+                        <button class="btn btn-gold" data-section="updateStock">Update Stock</button>
+                    </div>
+                    <div class="stock-action-card">
+                        <div class="stock-card-icon">🗑️</div>
+                        <h3 class="stock-card-title">Delete Stock</h3>
+                        <p class="stock-card-desc">Remove outdated or unavailable items from the stock records.</p>
+                        <button class="btn btn-danger" data-section="deleteStock">Delete Stock</button>
+                    </div>
+                    <div class="stock-action-card">
+                        <div class="stock-card-icon">👁️</div>
+                        <h3 class="stock-card-title">View All Stock</h3>
+                        <p class="stock-card-desc">Browse and view all available wedding packages and inventory items.</p>
+                        <button class="btn btn-gold" data-section="viewStock">View Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INSERT STOCK FORM -->
+            <div class="dashboard-section" id="insertStock">
+                <h2 class="dashboard-section-title">Insert New Stock</h2>
+                <div class="alert-box" id="insertAlert"></div>
+                <div class="stock-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="newItemName">Item Name</label>
+                            <input type="text" id="newItemName" class="form-input" placeholder="Enter item name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="newCategory">Category</label>
+                            <select id="newCategory" class="form-input">
+                                <option value="">Select Category</option>
+                                <option value="Package">Package</option>
+                                <option value="Decoration">Decoration</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Photography">Photography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="newPrice">Price (PKR)</label>
+                            <input type="number" id="newPrice" class="form-input" placeholder="Enter price">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="newQty">Quantity</label>
+                            <input type="number" id="newQty" class="form-input" placeholder="Enter quantity">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="newStatus">Status</label>
+                            <select id="newStatus" class="form-input">
+                                <option value="">Select Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-gold" id="insertBtn">Add to Stock</button>
+                </div>
+            </div>
+
+            <!-- UPDATE STOCK FORM -->
+            <div class="dashboard-section" id="updateStock">
+                <h2 class="dashboard-section-title">Update Stock</h2>
+                <div class="alert-box" id="updateAlert"></div>
+                <div class="stock-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="updateID">Stock ID</label>
+                            <input type="text" id="updateID" class="form-input" placeholder="e.g. ST-001">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="updateName">Item Name</label>
+                            <input type="text" id="updateName" class="form-input" placeholder="Enter item name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="updateCategory">Category</label>
+                            <select id="updateCategory" class="form-input">
+                                <option value="">Select Category</option>
+                                <option value="Package">Package</option>
+                                <option value="Decoration">Decoration</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Photography">Photography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="updatePrice">Price (PKR)</label>
+                            <input type="number" id="updatePrice" class="form-input" placeholder="Enter new price">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="updateQty">Quantity</label>
+                            <input type="number" id="updateQty" class="form-input" placeholder="Enter quantity">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="updateStatus">Status</label>
+                            <select id="updateStatus" class="form-input">
+                                <option value="">Select Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-gold" id="updateBtn">Update Stock</button>
+                </div>
+            </div>
+
+            <!-- DELETE STOCK FORM -->
+            <div class="dashboard-section" id="deleteStock">
+                <h2 class="dashboard-section-title">Delete Stock</h2>
+                <div class="alert-box" id="deleteAlert"></div>
+                <div class="stock-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="deleteID">Stock ID to Delete</label>
+                            <input type="text" id="deleteID" class="form-input" placeholder="e.g. ST-001">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="deleteConfirmName">Confirm Item Name</label>
+                            <input type="text" id="deleteConfirmName" class="form-input" placeholder="Enter item name to confirm">
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" id="deleteBtn">Delete Stock</button>
+                </div>
+            </div>
+
+            <!-- VIEW ALL STOCK -->
+            <div class="dashboard-section" id="viewStock">
+                <h2 class="dashboard-section-title">All Stock Records</h2>
+                <div class="search-filter-bar">
+                    <input type="text" class="search-input" id="stockSearch" placeholder="Search stock by name...">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Package">Package</option>
+                        <option value="Decoration">Decoration</option>
+                        <option value="Catering">Catering</option>
+                        <option value="Photography">Photography</option>
+                    </select>
+                    <select class="filter-select" id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="low">Under 100,000 PKR</option>
+                        <option value="mid">100,000 - 300,000 PKR</option>
+                        <option value="high">Above 300,000 PKR</option>
+                    </select>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </div>
+                <div class="table-wrapper">
+                    <table class="booking-table" id="stockTable">
+                        <thead>
+                            <tr>
+                                <th class="table-head">Stock ID</th>
+                                <th class="table-head">Item Name</th>
+                                <th class="table-head">Category</th>
+                                <th class="table-head">Price (PKR)</th>
+                                <th class="table-head">Quantity</th>
+                                <th class="table-head">Status</th>
+                                <th class="table-head">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stockTableBody">
+                            <tr class="table-row" data-id="ST-001" data-name="Gold Wedding Package" data-category="Package" data-price="281400" data-qty="10" data-status="Available">
+                                <td class="table-cell">#ST-001</td>
+                                <td class="table-cell">Gold Wedding Package</td>
+                                <td class="table-cell">Package</td>
+                                <td class="table-cell">281,400</td>
+                                <td class="table-cell">10</td>
+                                <td class="table-cell"><span class="status-badge confirmed">Available</span></td>
+                                <td class="table-cell action-buttons">
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-cancel">Delete</button>
+                                    <button class="btn-small btn-cart">Cart</button>
+                                </td>
+                            </tr>
+                            <tr class="table-row" data-id="ST-002" data-name="Silver Wedding Package" data-category="Package" data-price="140700" data-qty="15" data-status="Available">
+                                <td class="table-cell">#ST-002</td>
+                                <td class="table-cell">Silver Wedding Package</td>
+                                <td class="table-cell">Package</td>
+                                <td class="table-cell">140,700</td>
+                                <td class="table-cell">15</td>
+                                <td class="table-cell"><span class="status-badge confirmed">Available</span></td>
+                                <td class="table-cell action-buttons">
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-cancel">Delete</button>
+                                    <button class="btn-small btn-cart">Cart</button>
+                                </td>
+                            </tr>
+                            <tr class="table-row" data-id="ST-003" data-name="Floral Stage Decoration" data-category="Decoration" data-price="45000" data-qty="8" data-status="Limited">
+                                <td class="table-cell">#ST-003</td>
+                                <td class="table-cell">Floral Stage Decoration</td>
+                                <td class="table-cell">Decoration</td>
+                                <td class="table-cell">45,000</td>
+                                <td class="table-cell">8</td>
+                                <td class="table-cell"><span class="status-badge pending">Limited</span></td>
+                                <td class="table-cell action-buttons">
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-cancel">Delete</button>
+                                    <button class="btn-small btn-cart">Cart</button>
+                                </td>
+                            </tr>
+                            <tr class="table-row" data-id="ST-004" data-name="Premium Catering Service" data-category="Catering" data-price="120000" data-qty="5" data-status="Limited">
+                                <td class="table-cell">#ST-004</td>
+                                <td class="table-cell">Premium Catering Service</td>
+                                <td class="table-cell">Catering</td>
+                                <td class="table-cell">120,000</td>
+                                <td class="table-cell">5</td>
+                                <td class="table-cell"><span class="status-badge pending">Limited</span></td>
+                                <td class="table-cell action-buttons">
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-cancel">Delete</button>
+                                    <button class="btn-small btn-cart">Cart</button>
+                                </td>
+                            </tr>
+                            <tr class="table-row" data-id="ST-005" data-name="Photography Package" data-category="Photography" data-price="75000" data-qty="0" data-status="Unavailable">
+                                <td class="table-cell">#ST-005</td>
+                                <td class="table-cell">Photography Package</td>
+                                <td class="table-cell">Photography</td>
+                                <td class="table-cell">75,000</td>
+                                <td class="table-cell">0</td>
+                                <td class="table-cell"><span class="status-badge cancelled">Unavailable</span></td>
+                                <td class="table-cell action-buttons">
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-cancel">Delete</button>
+                                    <button class="btn-small btn-cart">Cart</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CART VIEW -->
+            <div class="dashboard-section" id="cartSection">
+                <h2 class="dashboard-section-title">Cart View</h2>
+                <div class="table-wrapper">
+                    <table class="booking-table" id="cartTable">
+                        <thead>
+                            <tr>
+                                <th class="table-head">Item Name</th>
+                                <th class="table-head">Category</th>
+                                <th class="table-head">Price (PKR)</th>
+                                <th class="table-head">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <tr class="table-row">
+                                <td class="table-cell" colspan="4">No items in cart yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-total">
+                    <span class="cart-total-label">Total:</span>
+                    <span class="cart-total-value" id="cartTotal">0 PKR</span>
+                </div>
+            </div>
+
+            <!-- GRAPHICAL VIEW -->
+            <div class="dashboard-section">
+                <h2 class="dashboard-section-title">Stock Overview - Graphical View</h2>
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3 class="chart-title">Stock by Category (Quantity)</h3>
+                        <div class="bar-chart" id="barChart"></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3 class="chart-title">Stock Status Distribution</h3>
+                        <div class="pie-chart-wrapper">
+                            <canvas class="pie-canvas" id="pieChart"></canvas>
+                            <div class="pie-legend" id="pieLegend"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3 class="footer-brand-title">Dream Wedding</h3>
+                <p class="footer-brand-desc">Islamabad's premier wedding hall and planning service. Making your most special day truly unforgettable.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">QUICK LINKS</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html" class="footer-link">Home</a></li>
+                    <li><a href="Services.html" class="footer-link">Services &amp; Packages</a></li>
+                    <li><a href="Gallery.html" class="footer-link">Gallery</a></li>
+                    <li><a href="#" class="footer-link">Book Now</a></li>
+                    <li><a href="Dashboard.html" class="footer-link">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">OUR SERVICES</h4>
+                <ul class="footer-list">
+                    <li><a href="#" class="footer-link">Grand Wedding Halls</a></li>
+                    <li><a href="#" class="footer-link">Catering &amp; Cuisine</a></li>
+                    <li><a href="#" class="footer-link">Stage &amp; Decoration</a></li>
+                    <li><a href="#" class="footer-link">Photography</a></li>
+                    <li><a href="#" class="footer-link">Event Planning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">CONTACT US</h4>
+                <ul class="footer-list">
+                    <li class="footer-contact-item">
+                        <span class="footer-contact-icon">📍</span>
+                        <span>Hall No. 5, Blue Area, Islamabad, Pakistan</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="footer-contact-icon">📞</span>
+                        <span>+92 51 000 0000</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="footer-contact-icon">✉️</span>
+                        <span>info@dreamwedding.pk</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="footer-contact-icon">🕐</span>
+                        <span>Mon – Sun: 9:00 AM – 9:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2025 Dream Wedding Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
